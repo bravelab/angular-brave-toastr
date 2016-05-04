@@ -1,0 +1,22 @@
+{
+  "name": "app.docs",
+  "authors": [
+    "Mariusz Smenżyk <mariusz.smenzyk@sizeof.pl>"
+  ],
+  "description": "Docs module for SmartAdmin",
+  "main": "docs.module.js",
+  "keywords": [
+    "Docs"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.sizeof.pl/en/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "main/bower_components",
+    "test",
+    "tests"
+  ]
+}
