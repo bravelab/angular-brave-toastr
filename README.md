@@ -23,5 +23,6 @@ To build minified version:
 
 1. Run `gulp dist`
 2. Add files to repo `git add .`
+3. Commit changes `git commit -m "Message"`
 3. Make tag version `git tag -a x.y.z`
 4. Push version to git `git push --tags`
