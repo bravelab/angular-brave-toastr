@@ -8,6 +8,6 @@
    */
   angular
     .module('ngBraveDocs', [])
-    .value('version', '0.0.0');
+    .value('version', '0.0.1');
 
 })();
