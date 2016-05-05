@@ -9,8 +9,8 @@
      */
     describe('should provide ngBraveDocs module', function () {
 
-        var AuthenticationMock,
-            DocsMock,
+        var // AuthenticationMock,
+            docsServiceMock,
             controller;
 
         var $httpBackend,
@@ -20,11 +20,8 @@
             $stateParams,
             $state;
 
-
         beforeEach(function () {
             module('ngBraveDocs');
-            module('ngBraveDocs.mocks'); // (1)
-            module('app.auth.mocks'); // (1)
         });
 
         beforeEach(inject(function ($injector) {
@@ -37,15 +34,17 @@
             $scope = $rootScope.$new();
         }));
 
-        beforeEach(inject(function (_AuthenticationMock_, _DocsMock_) {
+        beforeEach(inject(function (_DocsServiceMock_) {
 
-            AuthenticationMock = _AuthenticationMock_;
-            DocsMock = _DocsMock_; // (2)
+            // AuthenticationMock = _AuthenticationMock_;
+            docsServiceMock = _DocsServiceMock_; // (2)
+
+            $stateParams.id = 1;
 
             controller = $controller('DocsDetailController', {
                 $scope: $scope,
                 $stateParams: $stateParams,
-                Docs: _DocsMock_
+                docsService: docsServiceMock
             });
 
         }));
@@ -54,9 +53,9 @@
             expect(controller).toBeDefined();
         }));
 
-        it('should have school in scope', inject(function () {
+        it('should have doc in scope', inject(function () {
             $scope.$apply();
-            expect(controller.doc).toEqual(DocsMock.mockedDetail);
+            expect(controller.doc).toEqual(docsServiceMock.mockedDetail);
         }));
 
     });
