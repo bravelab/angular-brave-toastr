@@ -22,6 +22,7 @@ module.exports = function(config) {
       'node_modules/phantomjs-polyfill/bind-polyfill.js', // polyfill missing es5 Function.prototype.bind support in phantomjs
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
       'src/**/*.js',
       'test/**/*.spec.js'
     ],
@@ -75,8 +76,6 @@ module.exports = function(config) {
     coverageReporter: {
       type: 'lcov',
       dir: 'coverage/'
-    },
-
-
+    }
   });
 };

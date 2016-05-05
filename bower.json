@@ -19,5 +19,9 @@
     "main/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~1.1.0",
+    "angular-ui-router": "~0.2.15"
+  }
 }

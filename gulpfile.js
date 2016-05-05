@@ -46,14 +46,14 @@ gulp.task('dist', ['lint', 'test'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('lint', function(){
+gulp.task('lint', function () {
   return gulp.src(config.lint.src)
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', function () {
   gulp.watch(config.lint.src, ['lint', 'test']);
 });
 

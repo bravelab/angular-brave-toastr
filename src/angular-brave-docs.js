@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -7,7 +7,7 @@
    * @description Docs module for SmartAdmin
    */
   angular
-    .module('ngBraveDocs', [])
+    .module('ngBraveDocs', ['ui.router'])
     .value('version', '0.0.1');
 
 })();
