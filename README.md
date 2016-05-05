@@ -12,10 +12,8 @@ To run the code in your development environment:
 For develop module on local
 
 1. Run `bower link` on component directory
-2. Go to the app root directory and run `bower link angular-brave-docs` 
-
-Notice! You must re-link your bower module in app after changes in component 
-
+2. Go to the app root directory and run `bower link angular-brave-docs` (Notice! You must re-link your bower module in app after changes in component) 
+3. Run `gulp test` for karma tests
 
 Production
 ----------
