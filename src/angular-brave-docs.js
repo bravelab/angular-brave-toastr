@@ -8,6 +8,9 @@
    */
   angular
     .module('ngBraveDocs', ['ui.router'])
-    .value('version', '0.0.1');
+    .value('version', '0.0.1')
+    .constant('APP_CONFIG', {
+      apiUrl: '/api'
+    });
 
 })();

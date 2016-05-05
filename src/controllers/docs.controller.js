@@ -5,17 +5,16 @@
     .module('ngBraveDocs')
     .controller('DocsController', DocsController);
 
-  DocsController.$inject = ['$scope', '$state', 'Authentication', 'DocsService'];
+  DocsController.$inject = ['$scope', '$state', 'DocsService'];
 
   /**
    *
    * @param {Object} $scope - Scope
    * @param {Object} $state - State
-   * @param {Object} Authentication - Auth service (@deprecated)
    * @param {Object} docsService - Docs service
      * @constructor
      */
-  function DocsController($scope, $state, Authentication, docsService) {
+  function DocsController($scope, $state, docsService) {
 
     activate();
 
@@ -26,16 +25,16 @@
      */
     function activate() {
 
-      Authentication.getToken().then(tokenSuccessFn);
+      // Authentication.getToken().then(tokenSuccessFn);
 
       /**
        * @name tokenSuccessFn
        * @param {string} token - Auth token
        * @desc Calls docsService.getAll()
        */
-      function tokenSuccessFn(token) {
-        docsService.getAll().then(docSuccessFn, docErrorFn);
-      }
+      // function tokenSuccessFn(token) {
+      docsService.getAll().then(docSuccessFn, docErrorFn);
+      // }
 
       /**
        * @name docsSuccessFn
