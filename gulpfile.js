@@ -4,8 +4,7 @@
   var uglify = require('gulp-uglify');
   var concat = require('gulp-concat');
   var eslint = require('gulp-eslint');
-  var changelog = require('gulp-changelog')
-  var conventionalChangelog = require('gulp-conventional-changelog')
+  var conventionalChangelog = require('gulp-conventional-changelog');
 
   var config = {
     lint: {
