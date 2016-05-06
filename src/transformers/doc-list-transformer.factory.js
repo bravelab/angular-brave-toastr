@@ -12,15 +12,14 @@
   DocListTransformer.$inject = ['Doc'];
 
   function DocListTransformer(Doc) {
-    return function (data) {
-      data = JSON.parse(data);
-      // if (data.data !== undefined && data.data.length) {
-      //   data = _.map(data.data, function (item) {
-      //     return new Doc(
-      //       item.id
-      //     );
-      //   });
-      // }
+    return function (response) {
+      var data = response.data;
+      var result = (typeof data === 'string') ? JSON.parse(data) : data;
+      if (result.length) {
+        data = _.map(result, function (item) {
+          return new Doc(item);
+        });
+      }
       return data;
     };
   }

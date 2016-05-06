@@ -13,10 +13,8 @@
 
   function DocTransformer(Doc) {
     return function (data) {
-      data = JSON.parse(data);
-      return new Doc(
-        data.id
-      );
+      var object = (typeof data === 'string') ? JSON.parse(data) : data;
+      return new Doc(object);
     };
   }
 

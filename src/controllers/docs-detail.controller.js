@@ -26,8 +26,8 @@
      * @memberOf ngBraveDocs.DocsDetailController
      */
     function activate() {
-      docsService.get($stateParams.id).then(function (data) {
-        vm.doc = data;
+      docsService.get($stateParams.id).then(function (doc) {
+        vm.doc = doc;
       });
     }
   }

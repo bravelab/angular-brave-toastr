@@ -23,6 +23,7 @@ module.exports = function(config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+      'bower_components/underscore/underscore-min.js',
       'src/**/*.js',
       'test/**/*.spec.js'
     ],

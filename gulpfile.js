@@ -1,60 +1,83 @@
-var gulp = require('gulp');
-var Server = require('karma').Server;
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var eslint = require('gulp-eslint');
 
-var config = {
-  lint: {
-    src: ['src/**/*.js', 'test/**/*.spec.js']
-  },
-  dist: {
-    files: [
-      'src/**/*.js'
-    ],
-    concat: 'angular-brave-docs.js',
-    min: 'angular-brave-docs.min.js'
-  }
-};
+  var gulp = require('gulp');
+  var Server = require('karma').Server;
+  var uglify = require('gulp-uglify');
+  var concat = require('gulp-concat');
+  var eslint = require('gulp-eslint');
+  var changelog = require('gulp-changelog')
+  var conventionalChangelog = require('gulp-conventional-changelog')
 
-
-function runTest(watch, done) {
-
-  var conf = {
-    configFile: __dirname + '/test/karma.conf.js',
-    singleRun: !watch,
-    autoWatch: watch
+  var config = {
+    lint: {
+      src: ['src/**/*.js', 'test/**/*.spec.js']
+    },
+    dist: {
+      files: [
+        'src/**/*.js'
+      ],
+      concat: 'angular-brave-docs.js',
+      min: 'angular-brave-docs.min.js'
+    }
   };
 
-  return new Server(conf, done).start();
-}
 
-gulp.task('test', runTest.bind(null, false));
-gulp.task('test:watch', runTest.bind(null, true));
+  function runTest(watch, done) {
 
-gulp.task('dist', ['lint', 'test'], function () {
+    var conf = {
+      configFile: __dirname + '/test/karma.conf.js',
+      singleRun: !watch,
+      autoWatch: watch
+    };
 
-  var files = config.dist.files;
+    return new Server(conf, done).start();
+  }
 
-  gulp.src(files)
-    .pipe(concat(config.dist.min))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist'));
+  gulp.task('test', runTest.bind(null, false));
+  gulp.task('test:watch', runTest.bind(null, true));
 
-  gulp.src(files)
-    .pipe(concat(config.dist.concat))
-    .pipe(gulp.dest('dist'));
-});
+  gulp.task('dist', ['lint', 'test'], function () {
 
-gulp.task('lint', function () {
-  return gulp.src(config.lint.src)
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
+    var files = config.dist.files;
 
-gulp.task('watch', function () {
-  gulp.watch(config.lint.src, ['lint', 'test']);
-});
+    gulp.src(files)
+      .pipe(concat(config.dist.min))
+      .pipe(uglify())
+      .pipe(gulp.dest('dist'));
 
-gulp.task('default', ['watch']);
+    gulp.src(files)
+      .pipe(concat(config.dist.concat))
+      .pipe(gulp.dest('dist'));
+  });
+
+  gulp.task('lint', function () {
+    return gulp.src(config.lint.src)
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+  });
+
+
+  gulp.task('changelog', function () {
+    return gulp.src('CHANGELOG.md')
+      .pipe(conventionalChangelog({
+        // conventional-changelog options go here
+        preset: 'angular',
+        releaseCount: 0,
+        read: false
+      }, {
+        // context goes here
+      }, {
+        // git-raw-commits options go here
+      }, {
+        // conventional-commits-parser options go here
+      }, {
+        // conventional-changelog-writer options go here
+      }))
+      .pipe(gulp.dest('./'));
+  });
+
+  gulp.task('watch', function () {
+    gulp.watch(config.lint.src, ['lint', 'test']);
+  });
+
+  gulp.task('default', ['watch']);

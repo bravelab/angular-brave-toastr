@@ -8,7 +8,7 @@
    * @todo Inject AutheticationService
    *
    */
-  describe('should provide ngBraveDocs module', function () {
+  describe('should provide DocsController', function () {
 
     var // AuthenticationMock,
       docsServiceMock,
@@ -52,10 +52,14 @@
       expect(controller).toBeDefined();
     }));
 
-    // it('should have product in scope', inject(function () {
-    //     $scope.$apply();
-    //     expect($scope.docs).toEqual(docsServiceMock.mockedData.data);
-    // }));
+    it('should have doc in scope', inject(function () {
+
+      $httpBackend.whenGET('/api/docs/').respond(docsServiceMock.list);
+      $httpBackend.flush();
+      $scope.$apply();
+
+      expect($scope.docs).toEqual(docsServiceMock.list.data);
+    }));
 
   });
 

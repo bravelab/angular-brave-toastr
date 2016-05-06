@@ -5,9 +5,10 @@
    * @ngdoc overview
    * @name ngBraveDocs tests
    * @description Docs tests
+   * @todo Inject AutheticationService
    *
    */
-  describe('should provide DocsDetailController', function () {
+  describe('should provide DocsListController', function () {
 
     var // AuthenticationMock,
       docsServiceMock,
@@ -17,8 +18,8 @@
       $controller,
       $rootScope,
       $scope,
-      $stateParams,
       $state;
+
 
     beforeEach(function () {
       module('ngBraveDocs');
@@ -26,7 +27,6 @@
 
     beforeEach(inject(function ($injector) {
       $state = $injector.get('$state');
-      $stateParams = $injector.get('$stateParams');
       $rootScope = $injector.get('$rootScope');
       $httpBackend = $injector.get('$httpBackend');
       $controller = $injector.get('$controller');
@@ -39,11 +39,10 @@
       // AuthenticationMock = _AuthenticationMock_;
       docsServiceMock = _DocsServiceMock_; // (2)
 
-      $stateParams.id = docsServiceMock.detail.id;
-
-      controller = $controller('DocsDetailController', {
+      controller = $controller('DocsListController', {
         $scope: $scope,
-        $stateParams: $stateParams,
+        $state: $state,
+        // Authentication: _AuthenticationMock_,
         docsService: docsServiceMock
       });
 
@@ -51,15 +50,6 @@
 
     it('should have defined controller', inject(function () {
       expect(controller).toBeDefined();
-    }));
-
-    it('should have doc in scope', inject(function () {
-
-      $httpBackend.whenGET('/api/docs/' + docsServiceMock.detail.id + '/').respond(docsServiceMock.detail);
-      $httpBackend.flush();
-      $scope.$apply();
-
-      expect(controller.doc).toEqual(docsServiceMock.detail);
     }));
 
   });

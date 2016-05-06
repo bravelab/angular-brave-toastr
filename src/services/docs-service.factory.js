@@ -72,9 +72,8 @@
         transformResponse: docListTransformer
       })
         .then(function (data) {
-          return data.data;
-        }
-      );
+          return data;
+        });
     }
   }
 })();

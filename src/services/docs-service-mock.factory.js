@@ -4,48 +4,29 @@
 
   angular
     .module('ngBraveDocs')
-    .factory('DocsServiceMock',
+    .factory('DocsServiceMock', ['$q', 'Doc', function ($q, Doc) {
 
-    // TODO: Use transformers/doc factory
-    ['$q',
-      function ($q) {
-        var factory = {};
+      var mock = {
+        id: '89f7191e-d455-42c6-80cd-58ed48bd54b3',
+        title: 'Collections',
+        slug: 'collections',
+        content: '-some content-'
+      };
 
-        factory.mockedData = {
+      var factory = {
+        detail: new Doc(mock),
+        list: {
           data: [
-            {
-              id: '89f7191e-d455-42c6-80cd-58ed48bd54b3',
-              title: 'Collections',
-              slug: 'collections',
-              content: '-some content-'
-            }
+            new Doc(mock)
           ],
           meta: {
             totalAmount: 1
           }
-        };
+        }
+      };
 
-        factory.mockedDetail = {
-          id: '89f7191e-d455-42c6-80cd-58ed48bd54b3',
-          title: 'Collections',
-          slug: 'collections',
-          content: '-some content-'
-        };
+      return factory;
 
-        factory.get = function (id) {
-          var defer = $q.defer();
-          defer.resolve(this.mockedDetail);
-          return defer.promise;
-        };
-
-        factory.getAll = function () {
-          var defer = $q.defer();
-          defer.resolve(this.mockedData);
-          return defer.promise;
-        };
-
-        return factory;
-      }
-    ]);
+    }]);
 
 })();
