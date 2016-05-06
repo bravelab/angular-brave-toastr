@@ -3,19 +3,20 @@
 
   /**
    * @ngdoc overview
-   * @name ngBraveDocs
-   * @description ngBraveDocs tests
+   * @name ngBraveAjaxloader
+   * @description ngBraveAjaxloader tests
    *
    */
-  describe('ngBraveDocs module', function () {
+  describe('ngBraveAjaxloader module', function () {
 
-    beforeEach(module('ngBraveDocs'));
+    beforeEach(module('ngBraveAjaxloader'));
 
     describe('value - version', function () {
       it('should return current version', inject(function (version) {
-        expect(version).toEqual('0.0.3');
+        expect(version).toEqual('0.0.1');
       }));
     });
 
   });
 })();
+

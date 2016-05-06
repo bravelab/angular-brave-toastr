@@ -1,10 +1,10 @@
 {
-  "name": "angular-brave-docs",
+  "name": "angular-brave-ajaxloader",
   "authors": [
     "Mariusz Smenżyk <mariusz.smenzyk@sizeof.pl>"
   ],
-  "description": "Docs module for SmartAdmin",
-  "main": "./dist/angular-brave-docs.js",
+  "description": "Global ajaxloader for all ajax-requests",
+  "main": "./dist/angular-brave-ajaxloader.js",
   "keywords": [
     "Docs",
     "SmartAdmin"
@@ -19,10 +19,5 @@
     "main/bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "angular-bootstrap": "~1.1.0",
-    "angular-ui-router": "~0.2.15",
-    "underscore": "latest"
-  }
+  ]
 }
