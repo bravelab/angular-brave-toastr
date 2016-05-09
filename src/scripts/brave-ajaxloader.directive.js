@@ -10,10 +10,10 @@
     .module('ngBraveAjaxloader')
     .directive('braveAjaxloader', function () {
       return function ($scope, element) {
-        $scope.$on('loader__show', function () {
+        $scope.$on('braveAjaxloader:show', function () {
           return element.show();
         });
-        return $scope.$on('loader__hide', function () {
+        return $scope.$on('braveAjaxloader:hide', function () {
           return element.hide();
         });
       };

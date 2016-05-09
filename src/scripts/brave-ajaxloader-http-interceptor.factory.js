@@ -13,18 +13,18 @@
       return {
         request: function (config) {
           numLoadings++;
-          $rootScope.$broadcast('loader__show');
+          $rootScope.$broadcast('braveAjaxloader:show');
           return config || $q.when(config);
         },
         response: function (response) {
           if ((--numLoadings) === 0) {
-            $rootScope.$broadcast('loader__hide');
+            $rootScope.$broadcast('braveAjaxloader:hide');
           }
           return response || $q.when(response);
         },
         responseError: function (response) {
           if (!(--numLoadings)) {
-            $rootScope.$broadcast('loader__hide');
+            $rootScope.$broadcast('braveAjaxloader:hide');
           }
           return $q.reject(response);
         }

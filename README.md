@@ -1,5 +1,12 @@
-ngBraveAjaxloader for global ajax-requests
-==========================================
+ngBraveAjaxloader - Customizable preloader for all ajax-requests
+================================================================
+
+
+Use
+---
+
+1. Add `ngBraveAjaxloader` to your app modules
+2. Add `<div brave-ajaxloader id="brave-ajaxloader">loading</div>` to HTML body
 
 
 Development
@@ -10,18 +17,15 @@ To run the code in your development environment:
 2. Run `npm install`
 3. Run `gulp` for watch changes in code
 
-For develop module on local
+For development module on local
 
 1. Run `bower link` on component directory
-2. Go to the app root directory and run `bower link angular-brave-ajaxloader` (Notice! You must re-link your bower module in app after changes in component) 
-3. Run `gulp test` for karma tests
+2. Go to the app root directory and run `bower link angular-brave-app-sceleton` 
 
-Production
-----------
-To build minified version:
+Notice! You must re-link your bower module in app after changes in component 
 
-1. Run `gulp dist`
-2. Add files to repo `git add .`
-3. Commit changes `git commit -m "Message"`
-3. Make tag version `git tag -a x.y.z`
-4. Push version to git `git push --tags`
+
+Testing
+-------
+
+Run `gulp test` for karma tests
