@@ -32,18 +32,18 @@
       return {
         request: function (config) {
           numLoadings++;
-          $rootScope.$broadcast('loader__show');
+          $rootScope.$broadcast('braveAjaxloader:show');
           return config || $q.when(config);
         },
         response: function (response) {
           if ((--numLoadings) === 0) {
-            $rootScope.$broadcast('loader__hide');
+            $rootScope.$broadcast('braveAjaxloader:hide');
           }
           return response || $q.when(response);
         },
         responseError: function (response) {
           if (!(--numLoadings)) {
-            $rootScope.$broadcast('loader__hide');
+            $rootScope.$broadcast('braveAjaxloader:hide');
           }
           return $q.reject(response);
         }
@@ -62,12 +62,12 @@
    */
   angular
     .module('ngBraveAjaxloader')
-    .directive('braveAjaxloader', function ($rootScope) {
-      return function ($scope, element, attrs) {
-        $scope.$on('loader__show', function () {
+    .directive('braveAjaxloader', function () {
+      return function ($scope, element) {
+        $scope.$on('braveAjaxloader:show', function () {
           return element.show();
         });
-        return $scope.$on('loader__hide', function () {
+        return $scope.$on('braveAjaxloader:hide', function () {
           return element.hide();
         });
       };
