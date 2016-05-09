@@ -8,7 +8,7 @@
    */
   angular
     .module('ngBraveAjaxloader', [])
-    .value('version', '1.0.1')
+    .value('version', '1.0.2')
     .constant('config', {
 
     })
