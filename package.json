@@ -2,8 +2,8 @@
   "name": "angular-brave-ajaxloader",
   "description": "Global ajaxloader for all ajax-requests",
   "main": "dist/angular-brave-ajaxloader.min.js",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "license": "MIT",
   "author": {
     "name": "Mariusz Smenżyk",
