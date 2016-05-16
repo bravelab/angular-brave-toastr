@@ -4,7 +4,7 @@
   /**
    * @ngdoc overview
    * @name app [ngBraveToastr]
-   * @description jQuery BigBox for angular requests
+   * @description Show http errors by angular-toastr
    */
   angular
     .module('ngBraveToastr', [])
