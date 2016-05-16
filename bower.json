@@ -1,10 +1,10 @@
 {
-  "name": "angular-brave-ajaxloader",
+  "name": "angular-brave-toastr",
   "authors": [
     "Mariusz Smenżyk <mariusz.smenzyk@sizeof.pl>"
   ],
-  "description": "Global ajaxloader for all ajax-requests",
-  "main": "./dist/angular-brave-ajaxloader.js",
+  "description": "Global toastr for all ajax-requests",
+  "main": "./dist/angular-brave-toastr.js",
   "keywords": [
     "Docs",
     "SmartAdmin"
@@ -12,6 +12,9 @@
   "license": "MIT",
   "homepage": "https://www.sizeof.pl/en/",
   "private": true,
+  "dependencies": {
+    "angular-toastr": "latest"
+  },
   "ignore": [
     "**/.*",
     "node_modules",

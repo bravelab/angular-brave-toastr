@@ -14,8 +14,8 @@
       files: [
         'src/**/*.js'
       ],
-      concat: 'angular-brave-ajaxloader.js',
-      min: 'angular-brave-ajaxloader.min.js'
+      concat: 'angular-brave-toastr.js',
+      min: 'angular-brave-toastr.min.js'
     }
   };
 
@@ -76,7 +76,7 @@
   });
 
   gulp.task('watch', function () {
-    gulp.watch(config.lint.src, ['lint', 'test']);
+    gulp.watch(config.lint.src, ['dist']);
   });
 
   gulp.task('default', ['watch']);

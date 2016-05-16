@@ -3,17 +3,17 @@
 
   /**
    * @ngdoc overview
-   * @name ngBraveAjaxloader
-   * @description ngBraveAjaxloader tests
+   * @name ngBraveToastr
+   * @description ngBraveToastr tests
    *
    */
-  describe('ngBraveAjaxloader module', function () {
+  describe('ngBraveToastr module', function () {
 
-    beforeEach(module('ngBraveAjaxloader'));
+    beforeEach(module('ngBraveToastr'));
 
     describe('value - version', function () {
       it('should return current version', inject(function (version) {
-        expect(version).toEqual('1.0.2');
+        expect(version).toEqual('0.0.1');
       }));
     });
 

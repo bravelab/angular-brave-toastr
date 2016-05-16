@@ -8,6 +8,7 @@ globals:
   beforeEach: true
   inject: true
   _: true
+  $: true
 
 rules:
   indent: [2, 2]
