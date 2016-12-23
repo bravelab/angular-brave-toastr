@@ -8,7 +8,7 @@
    */
   angular
     .module('ngBraveToastr', [])
-    .value('version', '0.0.2')
+    .value('version', '0.0.3')
     .constant('config', {})
     .config(function ($httpProvider) {
 
